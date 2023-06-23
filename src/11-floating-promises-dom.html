@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Floating Promises HTML Demo</title>
+  </head>
+  <body>
+    <h1>Floating Promises HTML Demo</h1>
+    <button>Click me!</button>
+    <p aria-live="polite">Not yet clicked...</p>
+
+    <script>
+      const clicker = document.querySelector("button");
+      const display = document.querySelector("p");
+      let clickCount = 0;
+
+      clicker.addEventListener("click", async () => {
+        try {
+          callToApi();
+        } catch (error) {
+          display.textContent = `Error: ${error}`;
+          return;
+        }
+
+        clicker.disabled = true;
+        display.textContent = "Done!";
+      });
+
+      async function callToApi() {
+        await fetch("/some-api-that-does-not-exist", {
+          body: JSON.stringify({ event: "click" }),
+          method: "POST",
+        });
+      }
+    </script>
+  </body>
+</html>

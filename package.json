@@ -1,0 +1,14 @@
+{
+  "name": "understanding-floating-and-sinking-promises",
+  "version": "1.0.0",
+  "description": "Demo code for my talk on understanding floating and sinking Promises. ✨",
+  "main": "index.js",
+  "author": "Josh Goldberg <npm@joshuakgoldberg.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
+    "eslint": "^8.43.0",
+    "typescript": "^5.1.3"
+  }
+}

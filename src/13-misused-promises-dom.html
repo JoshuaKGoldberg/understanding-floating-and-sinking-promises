@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Floating Promises HTML Demo</title>
+  </head>
+  <body>
+    <h1>Floating Promises HTML Demo</h1>
+    <button>Click me!</button>
+    <p aria-live="polite">Not yet clicked...</p>
+
+    <script>
+      const clicker = document.querySelector("button");
+      const display = document.querySelector("p");
+      let clickCount = 0;
+
+      clicker.addEventListener("click", async () => {
+        await new Promise((resolve) => setTimeout(resolve, 250));
+
+        if (Math.random() > 0.5) {
+          throw new Error("Gotcha!");
+        }
+
+        display.textContent = `Click count: ${(clickCount += 1)}`;
+      });
+    </script>
+  </body>
+</html>
